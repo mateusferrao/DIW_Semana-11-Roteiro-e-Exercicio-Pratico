@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="script.js"></script>
     <title>Document</title>
 </head>
 
@@ -26,28 +27,82 @@
         </nav>
 
         <div class="d-flex justify-content-end m-4">
-            <button type="button" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i></button>
+            <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"><i class="bi bi-plus-lg"></i></button>
         </div>
-    </header>
 
-    <section>
-        <div class="card mx-auto border-2 border-success rounded" style="width: 25rem;">
-            <div class="card-body bg-success">
-                <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-success btn mx-2"><i class="bi bi-star"></i></button>
-                </div>
-                <h5 class="card-title text-white">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-success btn mx-2"><i class="bi bi-pencil-fill"></i></button>
-                    <button type="button" class="btn btn-success btn"><i class="bi bi-trash3-fill"></i></button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-success fw-bold" id="exampleModalLabel">Adicionar Card</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row mb-3">
+                                <div class="col-sm-10 m-auto">
+                                    <input type="text" placeholder="Título"
+                                        class="form-control form-control-lg border border-success" id="inputTitulo">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-10 m-auto">
+                                    <div class="col-sm-10 m-auto">
+                                        <input type="text" placeholder="Subtítulo"
+                                            class="form-control form-control-lg border border-success"
+                                            id="inputSubtitulo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-10 m-auto">
+                                    <div class="col-sm-10 m-auto">
+                                        <input type="text" placeholder="Texto"
+                                            class="form-control form-control-lg border border-success" id="inputTexto">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success">Adicionar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
+    <article>
+        <section>
+            <div class="border-2 border-success border-bottom mx-5 my-4 text-success">
+                <h1>Favoritos</h1>
+            </div>
+
+        </section>
+        <section>
+            <div class="border-2 border-success border-bottom mx-5 my-4 text-success">
+                <h1>To do List</h1>
+            </div>
+            <div class="card mx-auto border-2 border-success rounded" style="width: 25rem;">
+                <div class="card-body bg-success">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-success btn mx-2"><i class="bi bi-star"></i></button>
+                    </div>
+                    <h5 class="card-title text-white">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the
+                        bulk of the
+                        card's content.</p>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-success btn mx-2"><i
+                                class="bi bi-pencil-fill"></i></button>
+                        <button type="button" class="btn btn-success btn"><i class="bi bi-trash3-fill"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
 
 </body>
 
