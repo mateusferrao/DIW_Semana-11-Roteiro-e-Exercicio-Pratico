@@ -42,7 +42,7 @@ function imprimeDados() {
                             <button type="button" class="btn btn-success btn mx-2" data-bs-toggle="modal"
                 data-bs-target="#exampleModal" onclick="editaCard(${i})"><i
                                     class="bi bi-pencil-fill"></i></button>
-                            <button type="button" class="btn btn-success btn"><i class="bi bi-trash3-fill"></i></button>
+                            <button type="button" class="btn btn-success btn" data-bs-toggle="modal" data-bs-target="#exampleModal3" onclick="excluirCard(${i})"><i class="bi bi-trash3-fill"></i></button>
                         </div>
                     </div>
                 </div>`
@@ -59,7 +59,7 @@ function imprimeDados() {
                             <button type="button" class="btn btn-success btn mx-2" data-bs-toggle="modal"
                 data-bs-target="#exampleModal2" onclick="editaCard(${i})"><i
                                     class="bi bi-pencil-fill"></i></button>
-                            <button type="button" class="btn btn-success btn"><i class="bi bi-trash3-fill"></i></button>
+                            <button type="button" class="btn btn-success btn" data-bs-toggle="modal" data-bs-target="#exampleModal3" onclick="excluirCard(${i})"><i class="bi bi-trash3-fill"></i></button>
                         </div>
                     </div>
                 </div>`
@@ -120,8 +120,20 @@ function editaCard(index) {
 
         salvaDados(objDados);
         imprimeDados();
-        
+
     });
 }
 
+function excluirCard(index) {
+    let objDados = leDados();
+    let btnExcluir = document.getElementById('btnExcluir');
+
+    btnExcluir.addEventListener("click", () => {
+        objDados.cards.splice(index, 1);
+
+        salvaDados(objDados);
+
+        imprimeDados();
+    })
+}
 
