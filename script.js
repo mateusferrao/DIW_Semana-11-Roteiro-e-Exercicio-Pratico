@@ -30,7 +30,7 @@ function imprimeDados() {
 
     for (let i = 0; i < objDados.cards.length; i++) {
         const estrelaPreenchida = objDados.cards[i].favorito ? "bi-star-fill" : "bi-star";
-        const tarefaConcluida = objDados.cards[i].concluida ? "bi-check-square" : "bi-check-square-fill";
+        const tarefaConcluida = objDados.cards[i].concluida ? "bi-check-square-fill" : "bi-check-square";
 
         if (objDados.cards[i].favorito) {
             strFavHtml += `<div class="card mx-auto my-3 border-2 border-success rounded" style="width: 25rem;">
@@ -49,7 +49,7 @@ function imprimeDados() {
                         </div>
                     </div>
                 </div>`
-        }else if (!objDados.cards[i].concluida){
+        }else if (objDados.cards[i].concluida){
             strConcluidasHtml += `<div class="card mx-auto my-3 border-2 border-success rounded" style="width: 25rem;">
                     <div class="card-body bg-success">
                         <div class="d-flex justify-content-end">
@@ -105,7 +105,7 @@ function incluirCard() {
         subtitulo: strSubtitutulo,
         texto: strTexto,
         favorito: false,
-        concluida: true
+        concluida: false
     };
 
     objDados.cards.push(novoCard);
@@ -122,7 +122,7 @@ function incluirCard() {
 function alteraEstrela(index) {
     let objDados = leDados();
 
-    objDados.cards[index].favorito = !objDados.cards[index].favorito;
+    objDados.cards[index].favorito = objDados.cards[index].favorito;
 
     salvaDados(objDados);
 
