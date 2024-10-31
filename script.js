@@ -37,7 +37,6 @@ function imprimeDados() {
                     <div class="card-body bg-success">
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-success btn id="btnFav${i}" onclick="alteraEstrela(${i})"><i class="bi ${estrelaPreenchida}"></i></button>
-                            <button type="button" class="btn btn-success btn id="btnConcluir${i}" onclick="concluiTarefa(${i})"><i class="bi ${tarefaConcluida}"></i></button>
                         </div>
                         <h5 class="card-title text-white">${objDados.cards[i].titulo}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">${objDados.cards[i].subtitulo}</h6>
@@ -104,7 +103,9 @@ function incluirCard() {
     let novoCard = {
         titulo: strTitulo,
         subtitulo: strSubtitutulo,
-        texto: strTexto
+        texto: strTexto,
+        favorito: false,
+        concluida: true
     };
 
     objDados.cards.push(novoCard);
