@@ -73,7 +73,6 @@ function imprimeDados() {
 
 function incluirCard() {
     let objDados = leDados();
-    let btnAdd = document.getElementById('btnAdd');
 
     let strTitulo = document.getElementById('inputTitulo').value;
     let strSubtitutulo = document.getElementById('inputSubtitulo').value;
