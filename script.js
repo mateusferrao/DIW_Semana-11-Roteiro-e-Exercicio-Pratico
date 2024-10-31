@@ -3,19 +3,6 @@ window.addEventListener("load", () => {
     restauraModal();
 })
 
-function restauraModal(){
-    let tituloModal = document.getElementById('exampleModalLabel');
-    let btnModal = document.getElementById('btnAdd');
-
-    inputTitulo.setAttribute("placeholder", "Título");
-    inputSubtitulo.setAttribute("placeholder", "Subtítulo");
-    inputDesc.setAttribute("placeholder", "Descrição");
-
-    tituloModal.innerHTML = `Novo Card`;
-    btnModal.innerHTML = `Adicionar`;
-    
-}
-
 function salvaDados(dados) {
     localStorage.setItem('cards', JSON.stringify(dados));
 }
@@ -71,7 +58,7 @@ function imprimeDados() {
                         <p class="card-text text-white">${objDados.cards[i].texto}</p>
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-success btn mx-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" onclick="editaCard(${i})"><i
+                data-bs-target="#exampleModal2" onclick="editaCard(${i})"><i
                                     class="bi bi-pencil-fill"></i></button>
                             <button type="button" class="btn btn-success btn"><i class="bi bi-trash3-fill"></i></button>
                         </div>
@@ -87,13 +74,6 @@ function imprimeDados() {
 
 function incluirCard() {
     let objDados = leDados();
-
-    inputTitulo.removeAttribute("placeholder","Novo título");
-    inputTitulo.setAttribute("placeholder","Título");
-    inputSubtitulo.removeAttribute("placeholder","Novo subtítulo");
-    inputSubtitulo.setAttribute("placeholder","Subtítulo");
-    inputDesc.removeAttribute("placeholder","Nova descrição");
-    inputDesc.setAttribute("placeholder","Descrição");
 
     let strTitulo = document.getElementById('inputTitulo').value;
     let strSubtitutulo = document.getElementById('inputSubtitulo').value;
@@ -122,31 +102,27 @@ function alteraEstrela(index) {
     imprimeDados();
 }
 
-/*function editaCard(index) {
+function editaCard(index) {
     let objDados = leDados();
+    let btnSalvar = document.getElementById('btnSalvar');
 
-    let inputTitulo = document.getElementById('inputTitulo');
-    let inputSubtitulo = document.getElementById('inputSubtitulo');
-    let inputDesc = document.getElementById('inputDesc');
-    let tituloModal = document.getElementById('exampleModalLabel');
-    let btnModal = document.getElementById('btnAdd');
+    document.getElementById('inputNovoTitulo').value = objDados.cards[index].titulo;
+    document.getElementById('inputNovoSubtitulo').value = objDados.cards[index].subtitulo;
+    document.getElementById('inputNovaDesc').value = objDados.cards[index].texto;
 
-    inputTitulo.removeAttribute("placeholder","Título");
-    inputTitulo.setAttribute("placeholder","Novo título");
-    inputSubtitulo.removeAttribute("placeholder","Subtítulo");
-    inputSubtitulo.setAttribute("placeholder","Novo subtítulo");
-    inputDesc.removeAttribute("placeholder","Descrição");
-    inputDesc.setAttribute("placeholder","Nova descrição");
+    btnSalvar.addEventListener("click", () => {
+        let novoTitulo = document.getElementById('inputNovoTitulo').value;
+        let novoSubtitulo = document.getElementById('inputNovoSubtitulo').value;
+        let novaDesc = document.getElementById('inputNovaDesc').value;
 
-    tituloModal.innerHTML = `Editar Card`
-    btnModal.innerHTML = `Salvar`;
+        objDados.cards[index].titulo = novoTitulo;
+        objDados.cards[index].subtitulo = novoSubtitulo;
+        objDados.cards[index].texto = novaDesc;
 
-    objDados.cards[index].titulo = inputTitulo.value || objDados.cards[index].titulo;
-    objDados.cards[index].subtitulo = inputSubtitulo.value || objDados.cards[index].subtitulo;
-    objDados.cards[index].texto = inputDesc.value || objDados.cards[index].texto;
+        salvaDados(objDados);
+        imprimeDados();
+        
+    });
+}
 
-    salvaDados(objDados);
 
-    imprimeDados();
-
-}*/

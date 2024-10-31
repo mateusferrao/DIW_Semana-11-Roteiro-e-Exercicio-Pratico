@@ -25,10 +25,10 @@
                 </a>
             </div>
         </nav>
-
+        <!--MODAL 1-->
         <div class="d-flex justify-content-end m-4">
             <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" onclick="restauraModal()"><i class="bi bi-plus-lg"></i></button>
+                data-bs-target="#exampleModal"><i class="bi bi-plus-lg"></i></button>
         </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,12 +61,50 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="btnAdd" onclick="incluirCard()">Adicionar</button>
+                        <button type="button" class="btn btn-success" id="btnAdd" data-bs-dismiss="modal"
+                            onclick="incluirCard()">Adicionar</button>
                     </div>
                 </div>
             </div>
         </div>
-        
+        <!--MODAL 2-->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bold text-success" id="exampleModalLabel2">Editar Card</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row mb-3">
+                                <div class="col-sm-10 m-auto">
+                                    <input type="text" placeholder="Novo título"
+                                        class="form-control form-control-lg border border-success" id="inputNovoTitulo">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-10 m-auto">
+                                    <input type="text" placeholder="Novo subtítulo"
+                                        class="form-control form-control-lg border border-success"
+                                        id="inputNovoSubtitulo">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-10 m-auto">
+                                    <input type="text" placeholder="Nova descrição"
+                                        class="form-control form-control-lg border border-success" id="inputNovaDesc">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="btnSalvar">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <article>
@@ -75,7 +113,7 @@
                 <h1>Favoritos</h1>
             </div>
             <div id="favoritos">
-                
+
             </div>
         </section>
         <section>
@@ -83,7 +121,7 @@
                 <h1>To do List</h1>
             </div>
             <div id="toDoList">
-                
+
             </div>
         </section>
     </article>
